@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AutoElite - Veículos</title>
+    <link rel="stylesheet" href="veiculos.css" />
+</head>
+<body>
+
+    <nav class="navbar fade-in">
+        <div class="logo">
+            <img src="logo.png" alt="Prime Autos Logo" />
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="veiculos.html" class="active">Veículos</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="contato.html">Contato</a></li>
+        </ul>
+        
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Buscar por carros..." aria-label="Buscar carros" />
+            <button onclick="searchCar()" aria-label="Buscar">
+                <i class="search-icon">🔍</i>
+            </button>
+        </div>
+    </nav>
+
+    <header class="hero slide-in">
+        <div class="hero-content">
+            <h1>Conheça Nosso Catálogo de Veículos</h1>
+            <p>Modelos variados para atender todas as suas necessidades.</p>
+        </div>
+    </header>
+
+    <section class="cars fade-in">
+        <h2>Veículos Disponíveis</h2>
+        <div class="car-container" id="carContainer">
+
+            <div class="car-card hover-zoom">
+                <img src="https://images.unsplash.com/photo-1617531653332-bd46c24f2068?q=80&w=3015&auto=format&fit=crop" alt="BMW M4 Competition" />
+                <h3>BMW M4 Competition</h3>
+                <p>R$ 799.990</p>
+                <button class="btn" onclick="openModal('bmw')">Ver Detalhes</button>
+            </div>
+
+            <div class="car-card hover-zoom">
+                <img src="https://images.unsplash.com/photo-1618863099278-75222d755814?q=80&w=2940&auto=format&fit=crop" alt="Mercedes AMG GT" />
+                <h3>Mercedes AMG GT</h3>
+                <p>R$ 899.990</p>
+                <button class="btn" onclick="openModal('mercedes')">Ver Detalhes</button>
+            </div>
+
+            <div class="car-card hover-zoom">
+                <img src="https://images.unsplash.com/photo-1617195920791-e42b4d1e559a?q=80&w=2940&auto=format&fit=crop" alt="Audi RS e-tron GT" />
+                <h3>Audi RS e-tron GT</h3>
+                <p>R$ 999.990</p>
+                <button class="btn" onclick="openModal('audi')">Ver Detalhes</button>
+            </div>
+
+            <div class="car-card hover-zoom">
+                <img src="tesla.png" alt="Tesla Model S" />
+                <h3>Tesla Model S</h3>
+                <p>R$ 799.990</p>
+                <button class="btn" onclick="openModal('tesla')">Ver Detalhes</button>
+            </div>
+
+            <div class="car-card hover-zoom">
+                <img src="mustang.png" alt="Ford Mustang" />
+                <h3>Ford Mustang GT</h3>
+                <p>R$ 499.990</p>
+                <button class="btn" onclick="openModal('mustang')">Ver Detalhes</button>
+            </div>
+
+            <div class="car-card hover-zoom">
+                <img src="civic.png" alt="Honda Civic" />
+                <h3>Honda Civic Turbo</h3>
+                <p>R$ 119.990</p>
+                <button class="btn" onclick="openModal('civic')">Ver Detalhes</button>
+            </div>
+
+        </div>
+    </section>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <h3 id="modal-title">Carro</h3>
+            <p id="modal-price">Preço: </p>
+            <p id="modal-description">Descrição: </p>
+            <a id="modal-whatsapp" href="#" class="btn" target="_blank">Falar no WhatsApp</a>
+            <button class="btn modal-close" onclick="closeModal()">Fechar</button>
+        </div>
+    </div>
+
+    <footer class="footer-landing">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Sobre Nós</h3>
+                <p>Na Prime Autos, oferecemos veículos de alta qualidade com as melhores condições de mercado. Nossa missão é proporcionar aos nossos clientes uma experiência única na compra de carros novos e usados.</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Links Rápidos</h3>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="veiculos.html">Veículos</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Redes Sociais</h3>
+                <ul class="social-links">
+                    <li><a href="#" target="_blank">Facebook</a></li>
+                    <li><a href="#" target="_blank">Instagram</a></li>
+                    <li><a href="#" target="_blank">Twitter</a></li>
+                    <li><a href="#" target="_blank">LinkedIn</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Inscreva-se no Boletim</h3>
+                <form action="#">
+                    <input type="email" placeholder="Digite seu e-mail" required />
+                    <button type="submit" class="btn">Inscrever-se</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2024 Prime Autos. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        const carsData = {
+            bmw: {
+                title: "BMW M4 Competition",
+                price: "R$ 799.990",
+                description:
+                    "O BMW M4 Competition oferece desempenho incomparável e um design arrojado. Seu motor turboalimentado de 6 cilindros é uma das maiores atrações da categoria de carros esportivos.",
+                whatsapp:
+                    "https://wa.me/55511982969931?text=Tenho%20interesse%20no%20BMW%20M4%20Competition%20de%20R$799.990",
+            },
+            mercedes: {
+                title: "Mercedes AMG GT",
+                price: "R$ 899.990",
+                description:
+                    "O Mercedes AMG GT combina luxo e potência, com um motor V8 biturbo que oferece performance impressionante e uma experiência de direção única.",
+                whatsapp:
+                    "https://wa.me/55511982969931?text=Tenho%20interesse%20no%20Mercedes%20AMG%20GT%20de%20R$899.990",
+            },
+            audi: {
+                title: "Audi RS e-tron GT",
+                price: "R$ 999.990",
+                description:
+                    "A Audi RS e-tron GT é um carro elétrico de alto desempenho que oferece uma experiência de condução impressionante, com aceleração brutal e design futurista.",
+                whatsapp:
+                    "https://wa.me/55511982969931?text=Tenho%20interesse%20no%20Audi%20RS%20e-tron%20GT%20de%20R$999.990",
+            },
+            tesla: {
+                title: "Tesla Model S",
+                price: "R$ 799.990",
+                description:
+                    "Tesla Model S é um sedã elétrico de alto desempenho, que combina tecnologia avançada, autonomia impressionante e design futurista.",
+                whatsapp:
+                    "https://wa.me/55511982969931?text=Tenho%20interesse%20no%20Tesla%20Model%20S%20de%20R$799.990",
+            },
+            mustang: {
+                title: "Ford Mustang GT",
+                price: "R$ 499.990",
+                description:
+                    "O Ford Mustang GT é um ícone americano, conhecido por seu motor potente e design clássico que encanta os amantes de muscle cars.",
+                whatsapp:
+                    "https://wa.me/55511982969931?text=Tenho%20interesse%20no%20Ford%20Mustang%20GT%20de%20R$499.990",
+            },
+            civic: {
+                title: "Honda Civic Turbo",
+                price: "R$ 119.990",
+                description:
+                    "O Honda Civic Turbo oferece excelente desempenho, economia e conforto, sendo um dos sedãs mais populares do mercado.",
+                whatsapp:
+                    "https://wa.me/55511982969931?text=Tenho%20interesse%20no%20Honda%20Civic%20Turbo%20de%20R$119.990",
+            },
+        };
+
+        function openModal(carKey) {
+            const car = carsData[carKey];
+            if (!car) return;
+
+            document.getElementById("modal-title").textContent = car.title;
+            document.getElementById("modal-price").textContent = car.price;
+            document.getElementById("modal-description").textContent = car.description;
+            document.getElementById("modal-whatsapp").href = car.whatsapp;
+
+            document.getElementById("modal").style.display = "flex";
+        }
+
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+
+        function searchCar() {
+            const searchTerm = document.getElementById("searchInput").value.toLowerCase();
+            const carCards = document.querySelectorAll(".car-card");
+
+            carCards.forEach((card) => {
+                const carName = card.querySelector("h3").textContent.toLowerCase();
+                if (carName.includes(searchTerm)) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        }
+
+        window.addEventListener("scroll", () => {
+            const cards = document.querySelectorAll(".car-card");
+            const triggerBottom = window.innerHeight * 0.85;
+
+            cards.forEach((card) => {
+                const cardTop = card.getBoundingClientRect().top;
+
+                if (cardTop < triggerBottom) {
+                    card.classList.add("show");
+                } else {
+                    card.classList.remove("show");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

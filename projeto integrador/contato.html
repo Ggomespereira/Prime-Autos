@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Prime Autos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar fade-in">
+        <div class="logo">
+            <img src="logo.png" alt="Prime Autos Logo">
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="Index.html">Início</a></li>
+            <li><a href="veiculos.html">Veículos</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="contato.html" class="active">Contato</a></li>
+        </ul>
+
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Buscar por carros..." aria-label="Buscar carros">
+            <button onclick="searchCar()" aria-label="Buscar">
+                <i class="search-icon">🔍</i>
+            </button>
+        </div>
+    </nav>
+
+    <header class="hero slide-in">
+        <div class="hero-content">
+            <h1>Fale Conosco</h1>
+            <p>Estamos prontos para ajudar você a encontrar o carro ideal.</p>
+        </div>
+    </header>
+
+    <section class="contact fade-in">
+        <h2>Entre em Contato</h2>
+        <form action="#" method="post">
+            <input type="text" name="nome" placeholder="Seu nome" required>
+            <input type="email" name="email" placeholder="Seu e-mail" required>
+            <input type="tel" name="telefone" placeholder="Seu telefone (opcional)">
+            <textarea name="mensagem" rows="5" placeholder="Sua mensagem" required></textarea>
+            <button type="submit">Enviar Mensagem</button>
+        </form>
+    </section>
+
+    <section class="contact fade-in" style="margin-top: -30px;">
+        <h2>Nosso Endereço</h2>
+        <p>Av. Ipiranga, 1234 - Centro, Porto Alegre - RS, 90000-000</p>
+        <div style="max-width: 1000px; margin: 0 auto;">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3457.9491756593347!2d-51.228686484889755!3d-30.033056581889173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95199cd2d4c6c745%3A0x78afcf47d4b0ea95!2sAv.%20Ipiranga%2C%201234%20-%20Centro%2C%20Porto%20Alegre%20-%20RS%2C%2090000-000!5e0!3m2!1spt-BR!2sbr!4v1716674189500" 
+                width="100%" 
+                height="350" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </section>
+
+    <footer class="footer-landing">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Sobre Nós</h3>
+                <p>Na Prime Autos, oferecemos veículos de alta qualidade com as melhores condições de mercado. Nossa missão é proporcionar aos nossos clientes uma experiência única na compra de carros novos e usados.</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Links Rápidos</h3>
+                <ul>
+                    <li><a href="Index.html">Início</a></li>
+                    <li><a href="veiculos.html">Veículos</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Redes Sociais</h3>
+                <ul class="social-links">
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Inscreva-se no Boletim</h3>
+                <form action="#">
+                    <input type="email" placeholder="Digite seu e-mail" required>
+                    <button type="submit" class="btn">Inscrever-se</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2024 Prime Autos. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        function searchCar() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const carCards = document.querySelectorAll('.car-card');
+            
+            carCards.forEach(card => {
+                const carName = card.querySelector('h3')?.textContent.toLowerCase() || '';
+                card.style.display = carName.includes(searchTerm) ? 'block' : 'none';
+            });
+        }
+    </script>
+
+</body>
+</html>

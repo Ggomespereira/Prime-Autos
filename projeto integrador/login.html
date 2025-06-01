@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Autos</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+    <div class="content">
+        <h1>Bem-vindo à Prime Autos</h1>
+        <div class="logo">
+            <img src="logo.png" alt="Prime Autos Logo">
+        <button onclick="showModal()">Entrar / Cadastrar</button>
+    </div>
+
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModal()"></div>
+
+    <div class="container" id="modalContainer">
+        <div class="logo">
+            <img src="logo.png" alt="Prime Autos Logo">
+        </div>
+
+        <div class="form-container" id="formContainer">
+            <div class="form" id="loginForm">
+                <h2>Entrar</h2>
+                <input type="email" placeholder="E-mail" id="loginEmail" required>
+                <input type="password" placeholder="Senha" id="loginPassword" required>
+                <button type="submit" id="loginButton">Entrar</button>
+                <div class="toggle">
+                    <p>Não tem uma conta? <span onclick="toggleForms()">Cadastre-se</span></p>
+                </div>
+            </div>
+
+            <div class="form" id="registerForm">
+                <h2>Cadastrar</h2>
+                <input type="text" placeholder="Nome completo" id="name" required>
+                <input type="email" placeholder="E-mail" id="email" required>
+                <input type="password" placeholder="Criar senha" id="password" required>
+                <button type="submit" id="registerButton">Cadastrar</button>
+                <div class="toggle">
+                    <p>Já tem uma conta? <span onclick="toggleForms()">Entrar</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
